@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thomas Fischer Portfolio Home</title>
+    <link rel="stylesheet" href="styledblogs.css" media="screen">
+    <script type="text/javascript" src="dist/purify.min.js"></script>
+    <script type="module">
+        // Make DOMPurify global
+        window.DOMPurify = DOMPurify;
+        import * as Blogs from './styledblog.js';
+
+        Blogs.attach(document.getElementById('post-list'));
+        document.getElementById('create-post').addEventListener('click', Blogs.showPostDialog);
+    </script>
+</head>
+
+<body>
+    <header id="navigation-header">
+        <nav class="site-nav" id="global-nav">
+            <a id="link-home" href="/">Home</a>
+            <a href="projects.html">Projects</a>
+            <a href="hobbies.html">Hobbies</a>
+            <a href="contact.html">Contact Me</a>
+        </nav>
+        <nav class="site-nav" id="mobile-nav">
+            <details>
+                <summary>Navigation</summary>
+                <a href="/">Home</a>
+                <a href="projects.html">Projects</a>
+                <a href="hobbies.html">Hobbies</a>
+                <a href="contact.html">Contact Me</a>
+            </details>
+        </nav>
+    </header>
+    <main>
+        <h1>Blog Posts</h1>
+        <button id="create-post">Create Blog Post</button>
+        <output id="post-list"></output>
+    </main>
+    <footer id="site-footer">
+        <p>Created by Thomas Fischer</p>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects</title>
+    <link rel="stylesheet" href="style.css" media="screen">
+</head>
+
+<body>
+    <header id="navigation-header">
+        <nav class="site-nav" id="global-nav">
+            <a id="link-home" href="/">Home</a>
+            <a href="projects.html">Projects</a>
+            <a href="hobbies.html">Hobbies</a>
+            <a href="contact.html">Contact Me</a>
+        </nav>
+        <nav class="site-nav" id="mobile-nav">
+            <details>
+                <summary>Navigation</summary>
+                <a href="/">Home</a>
+                <a href="projects.html">Projects</a>
+                <a href="hobbies.html">Hobbies</a>
+                <a href="contact.html">Contact Me</a>
+            </details>
+        </nav>
+    </header>
+    <main>
+        <h1>PlatformerNEAT</h1>
+        <picture class="hero-resize" style="background-color: #141631">
+            <source media="(max-width: 767px)" srcset="images/neat.jpg">
+            <source srcset="media/neat.gif" type="image/gif">
+            <img src="media/neat.gif" alt="An animation showing a neural network beating a simple platformer game."
+                width="640" height="440">
+        </picture>
+        <section class="content content-sidebar">
+            <article>
+                <p>
+                    I implemented the NEAT algorithm and evolved neural networks to play a simple platformer game.
+                 </p>
+
+                <p>
+                    NEAT (NeuroEvolution of Augmenting Topologies) is a genetic algorithm developed for evolving
+                    artificial neural networks by adding, removing and reorganizing neurons and connections, in order
+                    to find the best network structure and weights for a given task. The algorithm was created by
+                    Kenneth O. Stanley and Risto Miikkulainen in 2002.
+                </p>
+
+                <p>
+                    The NEAT algorithm begins by generating a population of ANNs with small, random structures. Each ANN
+                    in the population is evaluated on a given task, such as playing a game or recognizing objects in
+                    images.
+                    The algorithm then selects the best-performing ANNs from the population, and uses them as parents to
+                    create a new generation of ANNs with slightly modified structures.
+                </p>
+
+                <p>
+                    It's extremely satisfying to see the networks complete a level, but it can also be frustrating to watch!
+                </p>
+
+            </article>
+            <aside class="sidebar">
+                <h2>Check it out on GitHub!</h2>
+
+                <footer>
+                    You can view this project on <a href="https://github.com/Synray/PlatformerNeat">GitHub</a>.
+                </footer>
+            </aside>
+        </section>
+    </main>
+    <footer id="site-footer">
+        <p>Created by Thomas Fischer</p>
+    </footer>
+</body>
+
+</html>

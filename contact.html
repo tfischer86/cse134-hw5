@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Me</title>
+    <link rel="stylesheet" href="style.css" media="screen">
+</head>
+
+<body>
+    <header id="navigation-header">
+        <nav class="site-nav" id="global-nav">
+            <a id="link-home" href="/">Home</a>
+            <a href="projects.html">Projects</a>
+            <a href="hobbies.html">Hobbies</a>
+            <a href="contact.html">Contact Me</a>
+        </nav>
+        <nav class="site-nav" id="mobile-nav">
+            <details>
+                <summary>Navigation</summary>
+                <a href="/">Home</a>
+                <a href="projects.html">Projects</a>
+                <a href="hobbies.html">Hobbies</a>
+                <a href="contact.html">Contact Me</a>
+            </details>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Contact Me</h1>
+        <section class="content content-sidebar">
+            <form id="contact-form" action="#" method="post">
+                <h2>Contact Form</h2>
+                <p>
+                    Please fill in this form with your message and contact info. Press submit to send me a message.
+                </p>
+                <div>
+                    <fieldset>
+                        <legend>Contact Info</legend>
+                        <label for="name">Name:
+                            <input type="text" name="name" id="name" required>
+                        </label>
+                        <label for="email">Email:
+                            <input type="email" name="email" id="email" required>
+                        </label>
+                        <label for="telno">Phone Number:
+                            <input type="tel" name="telno" id="telno">
+                        </label>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Message</legend>
+                        <label for="subject">Subject:
+                            <input type="text" name="subject" id="subject" list="subject-list" required>
+                        </label>
+                        <datalist id="subject-list">
+                            <option value="General">General</option>
+                            <option value="Job Offer">Job Offer</option>
+                            <option value="Bug Report">Bug Report</option>
+                        </datalist>
+                        <label for="message">Message Body:</label>
+                        <textarea name="message" id="message" rows="10" required></textarea>
+                    </fieldset>
+                    <button type="submit">Submit</button>
+                </div>
+            </form>
+            <aside class="sidebar">
+                <h2>Job Offerings</h2>
+                <p>
+                    Download my <a href="#">resume</a>.
+                </p>
+            </aside>
+        </section>
+    </main>
+    <footer id="site-footer">
+        <p>Created by Thomas Fischer</p>
+    </footer>
+</body>
+
+</html>

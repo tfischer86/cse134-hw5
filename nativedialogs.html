@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Native Dialogs</title>
+</head>
+
+<body>
+    <button id="alert">Alert</button>
+    <button id="confirm">Confirm</button>
+    <button id="prompt">Prompt</button>
+    <button id="safer-prompt">Safer Prompt</button>
+
+    <hr />
+
+    <output id="message"></output>
+
+    <script type="text/javascript" src="dist/purify.min.js"></script>
+    <script>
+        document.getElementById("alert").addEventListener("click", () => alert("You triggered an alert!"));
+        document.getElementById("confirm").addEventListener("click", showConfirm);
+        document.getElementById("prompt").addEventListener("click", showPrompt);
+        document.getElementById("safer-prompt").addEventListener("click", showSaferPrompt);
+
+        function showConfirm() {
+            let out = document.getElementById("message");
+            out.innerHTML = '';
+
+            setTimeout(() => {
+                let value = confirm("You triggered a confirm dialog!");
+                out.innerHTML = `The value returned by the confirm method is: ${value}`
+            }, 0);
+        }
+
+        function showPrompt() {
+            let out = document.getElementById("message");
+            out.innerHTML = '';
+
+            setTimeout(() => {
+                let value = prompt("Enter a value");
+                out.innerHTML = `You entered: ${value || "User didn't enter anything"}`
+            }, 0);
+        }
+
+        function showSaferPrompt() {
+            let out = document.getElementById("message");
+            out.innerHTML = '';
+
+            setTimeout(() => {
+                let value = prompt("Enter a value");
+                out.innerHTML = `You entered: ${value ? DOMPurify.sanitize(value) : "User didn't enter anything"}`
+            }, 0);
+        }
+    </script>
+</body>
+
+</html>
