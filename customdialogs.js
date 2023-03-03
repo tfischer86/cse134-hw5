@@ -13,6 +13,7 @@ export function createDialog(contents, inputs = `<button type="submit">OK</butto
 export function createAlert(message) {
     let contents = `<p>${message}</p>`;
     let dialog = createDialog(contents);
+    dialog.className = 'alert-dialog';
     return dialog;
 }
 
@@ -21,7 +22,9 @@ export function createConfirm(message) {
     let inputs = `<button type="submit">Cancel</button>
     <button type="submit" value="true">OK</button>`;
 
-    return createDialog(contents, inputs);
+    let dialog = createDialog(contents, inputs);
+    dialog.className = 'confirm-dialog';
+    return dialog;
 }
 
 export function createPrompt(message) {
@@ -30,8 +33,9 @@ export function createPrompt(message) {
     <input id="prompt-dialog-input" name="prompt-dialog-input"><br>
     <button type="submit">Cancel</button>
     <button type="submit">OK</button>`;
-
-    return createDialog(contents, inputs);
+    let dialog = createDialog(contents, inputs);
+    dialog.className = 'prompt-dialog';
+    return dialog;
 }
 
 /*
