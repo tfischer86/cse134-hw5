@@ -207,7 +207,7 @@ export function closePostDialog() {
     postDialog.close();
 }
 
-
+// dialog that opens when deleting a blog post
 let deleteDialog = CustomDialogs.createDialog(`
 <header><h2>Delete Blog Post?</h2></header>
 <button type="submit">Cancel</button>

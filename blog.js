@@ -31,8 +31,10 @@ export function attach(targetElement) {
 // Enter BlogPost information into the DOM
 function setBlogPostContent(postElement, post) {
     let template = `
+        <header>
         <h3>${post.title}</h3>
         <time>${post.date}</time>
+        </header>
         <p>${post.summary}</p>
         `;
     postElement.content.innerHTML = template;
@@ -41,18 +43,21 @@ function setBlogPostContent(postElement, post) {
 // Add a new BlogPost to the DOM, appending to the attached output element
 function appendPostElement(post) {
     let postElement = document.createElement('article');
-    postElement.className = "blogPost";
     postElement.index = posts.indexOf(post);
     postElement.content = document.createElement('div');
+    postElement.buttons = document.createElement('span');
+
+    // Insert the content
     setBlogPostContent(postElement, post);
     postElement.appendChild(postElement.content);
+    postElement.appendChild(postElement.buttons);
 
     // Add edit and delete buttons
     let editButton = document.createElement('button');
     editButton.type = 'button';
     editButton.innerText = 'Edit';
     editButton.addEventListener('click', () => editPostDialog(Array.prototype.indexOf.call(outputElement.children, postElement)));
-    postElement.appendChild(editButton);
+    postElement.buttons.appendChild(editButton);
 
     let deleteButton = document.createElement('button')
     deleteButton.type = 'button';
@@ -68,7 +73,7 @@ function appendPostElement(post) {
         deleteDialog.returnValue = '';
         deleteDialog.showModal();
     });
-    postElement.appendChild(deleteButton);
+    postElement.buttons.appendChild(deleteButton);
 
     // Update DOM
     outputElement.appendChild(postElement);
@@ -158,16 +163,19 @@ function loadBlogPosts() {
 // Post Creation Dialog, API
 
 let postDialog = CustomDialogs.createDialog(`
-<h2>Blog Post</h2>
+<header><h2>Blog Post</h2></header>
+<div>
 <label for="title-input">Title:</label>
 <input type="text" id="title-input" required><br>
 <label for="date-input">Date:</label>
 <input type="date" id="date-input" required><br>
 <label for="summary-input">Summary:</label>
 <textarea id="summary-input" required></textarea><br>
+</div>
 <button type="submit">OK</button>
 </form>`, '');
 
+postDialog.id = 'post-dialog';
 document.body.appendChild(postDialog);
 
 postDialog.titleInput = document.getElementById('title-input');
@@ -197,5 +205,12 @@ export function closePostDialog() {
     postDialog.close();
 }
 
-let deleteDialog = CustomDialogs.createConfirm("Delete Blog Post?");
+// dialog that opens when deleting a blog post
+let deleteDialog = CustomDialogs.createDialog(`
+<header><h2>Delete Blog Post?</h2></header>
+<button type="submit">Cancel</button>
+<button type="submit" value="true">OK</button>
+</form>`, '');
+
+deleteDialog.id = "delete-dialog";
 document.body.appendChild(deleteDialog);
