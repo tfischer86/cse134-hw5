@@ -18,6 +18,7 @@
 </head>
 
 <body>
+    <h1>Native Dialogs</h1>
     <button id="alert">Alert</button>
     <button id="confirm">Confirm</button>
     <button id="prompt">Prompt</button>
@@ -29,37 +30,37 @@
 
     <script type="text/javascript" src="dist/purify.min.js"></script>
     <script>
-        document.getElementById("alert").addEventListener("click", () => alert("You triggered an alert!"));
-        document.getElementById("confirm").addEventListener("click", showConfirm);
-        document.getElementById("prompt").addEventListener("click", showPrompt);
-        document.getElementById("safer-prompt").addEventListener("click", showSaferPrompt);
+        document.getElementById('alert').addEventListener('click', () => alert('You triggered an alert!'));
+        document.getElementById('confirm').addEventListener('click', showConfirm);
+        document.getElementById('prompt').addEventListener('click', showPrompt);
+        document.getElementById('safer-prompt').addEventListener('click', showSaferPrompt);
 
         function showConfirm() {
-            let out = document.getElementById("message");
+            let out = document.getElementById('message');
             out.innerHTML = '';
 
             setTimeout(() => {
-                let value = confirm("You triggered a confirm dialog!");
+                let value = confirm('You triggered a confirm dialog!');
                 out.innerHTML = `The value returned by the confirm method is: ${value}`
             }, 0);
         }
 
         function showPrompt() {
-            let out = document.getElementById("message");
+            let out = document.getElementById('message');
             out.innerHTML = '';
 
             setTimeout(() => {
-                let value = prompt("Enter a value");
+                let value = prompt('Enter a value');
                 out.innerHTML = `You entered: ${value || "User didn't enter anything"}`
             }, 0);
         }
 
         function showSaferPrompt() {
-            let out = document.getElementById("message");
+            let out = document.getElementById('message');
             out.innerHTML = '';
 
             setTimeout(() => {
-                let value = prompt("Enter a value");
+                let value = prompt('Enter a value');
                 out.innerHTML = `You entered: ${value ? DOMPurify.sanitize(value) : "User didn't enter anything"}`
             }, 0);
         }

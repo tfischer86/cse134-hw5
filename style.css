@@ -5,11 +5,17 @@
 }
 
 :root {
-    --nav-link-color: rgba(255, 255, 255, 0.8);
+    --header-bg-color: rgb(16, 27, 46);
+    --header-text-color: rgba(255, 255, 255, 0.8);
     --nav-link-color-hover: rgba(158, 158, 158, 0.7);
     --nav-link-bg-hover: rgb(27, 46, 79);
 
-    --header-bg-color: rgb(16, 27, 46);
+    --contrast-bg-color:  rgb(39, 39, 39);
+    --contrast-link-color:  rgb(47, 68, 255);
+    --contrast-link-hover:  rgb(39, 55, 197);
+
+    --content-bg-color: white;
+    --content-offset-bg-color:  rgb(236, 236, 236);;
 
     --hover-anim-duration: 150ms;
     --hover-anim: 
@@ -31,7 +37,7 @@
 .site-nav a {
     display: inline-block;
     text-decoration: none;
-    color: var(--nav-link-color);
+    color: var(--header-text-color);
     transition: var(--hover-anim);
     padding: 1rem;
 }
@@ -61,7 +67,7 @@
     display: none;
 
     margin: 0;
-    color: var(--nav-link-color);
+    color: var(--header-text-color);
 
     text-align: center;
 }
@@ -73,7 +79,7 @@
 }
 
 #mobile-nav details[open] summary {
-    border-bottom: 2px solid var(--nav-link-color);
+    border-bottom: 2px solid var(--header-text-color);
     color: var(--nav-link-color-hover);
     background-color: var(--nav-link-bg-hover);
 }
@@ -152,17 +158,17 @@ h1 {
 .sidebar {
     display: flex;
     flex-direction: column;
-    background-color: rgb(39, 39, 39);
+    background-color: var(--contrast-bg-color);
     color: white;
 }
 
 .sidebar a {
     text-decoration: none;
-    color: rgb(47, 68, 255)
+    color: var(--contrast-link-color);
 }
 
 .sidebar a:hover {
-    color: rgb(39, 55, 197)
+    color: var(--contrast-link-hover);
 }
 
 .sidebar footer {
@@ -173,12 +179,12 @@ h1 {
 /* Contact Form */
 
 #contact-form {
-    background-color: rgb(236, 236, 236);
+    background-color: var(--content-offset-bg-color);
     padding: 1em;
 }
 
 #contact-form > div {
-    background-color: white;
+    background-color: var(--content-bg-color);
     padding: 1em;
 }
 

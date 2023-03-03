@@ -10,7 +10,7 @@ dialog header {
     background-color: var(--header-bg-color);
     margin: 0;
     padding: 1em;
-    color: var(--nav-link-color);
+    color: var(--header-text-color);
     text-align: center;
 }
 
@@ -35,7 +35,7 @@ dialog * {
 
 .blog-post {
     width: 100%;
-    background-color: rgb(236, 236, 236);
+    background-color: var(--content-offset-bg-color);
 }
 
 .blog-post * {
@@ -46,7 +46,7 @@ dialog * {
     display:flex;
     padding: 1em;
     background-color: var(--header-bg-color);
-    color: var(--nav-link-color);
+    color: var(--header-text-color);
 }
 
 .blog-post h3 {
@@ -92,4 +92,8 @@ dialog * {
     background-size: contain;
     background-repeat: no-repeat;
     border: none;
+}
+
+#create-post {
+    padding: 1em;
 }
