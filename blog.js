@@ -133,7 +133,6 @@ function editBlogPost(index) {
 
 // delete a blog post from both the DOM and the database
 function deletePost(index) {
-    console.log("index", index)
     if (index < 0 || index >= posts.length) {
         return;
     }
@@ -198,12 +197,22 @@ export function editPostDialog(index) {
     postDialog.summaryInput.value = post.summary;
     postDialog.showModal();
     postDialog.onclose = () => editBlogPost(index);
-
 }
 
 export function closePostDialog() {
     postDialog.close();
 }
+
+postDialog.addEventListener('keydown', e => {
+    if (e.key === "Escape") {
+        postDialog.titleInput.value = '';
+        postDialog.dateInput.value = '';
+        postDialog.summaryInput.value = '';
+
+        postDialog.close();
+        postDialog.dispatchEvent(new Event('close'));
+    }
+});
 
 // dialog that opens when deleting a blog post
 let deleteDialog = CustomDialogs.createDialog(`
