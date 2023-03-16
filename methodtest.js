@@ -1,9 +1,5 @@
+// DOM elements
 let articleForm = document.getElementById("article_form");
-
-let articleId = document.getElementById('article_id');
-let articleName = document.getElementById('article_name');
-let articleBody = document.getElementById('article_body');
-let articleDate = document.getElementById('article_date');
 
 let postBtn = document.getElementById('postBtn');
 let getBtn = document.getElementById('getBtn');
@@ -17,6 +13,7 @@ getBtn.addEventListener('click', getRequest);
 putBtn.addEventListener('click', putRequest);
 deleteBtn.addEventListener('click', deleteRequest);
 
+// Collect form inputs. For some methods like GET and DELETE, it makes sense to only use the article ID.
 function getFormData(idOnly=false) {
     let formData = new FormData(articleForm);
     if (idOnly) {
@@ -29,39 +26,41 @@ function getFormData(idOnly=false) {
     return formData;
 }
 
-async function handleRequest(response) {
-    if (!response.ok) {
-        throw new Error('Error fetching response');
-    }
-    const data = await response.json();
-    out.innerHTML = JSON.stringify(data, null, 2);
-}
+// Handle different request methods 
 
 async function postRequest() {
     let response = await fetch('https://httpbin.org/post', {
         method: 'POST', body: getFormData()
     });
-    handleRequest(response);
+    renderResponse(response);
 }
 
 async function getRequest() {
     let response = await fetch('https://httpbin.org/get?' + new URLSearchParams(getFormData(true)), {
         method: 'GET'
     });
-    handleRequest(response);
+    renderResponse(response);
 }
 
  async function putRequest() {
     let response = await fetch('https://httpbin.org/put', {
         method: 'PUT', body: getFormData()
     });
-    handleRequest(response);
+    renderResponse(response);
 }
 
  async function deleteRequest() {
     let response = await fetch('https://httpbin.org/delete', {
         method: 'DELETE', body: getFormData(true)
     });
-    handleRequest(response);
+    renderResponse(response);
 }
 
+// Pretty-print response JSON. This relies on the 'white-space: pre' style attribute in the output tag.
+async function renderResponse(response) {
+    if (!response.ok) {
+        throw new Error('Error fetching response');
+    }
+    const data = await response.json();
+    out.innerHTML = JSON.stringify(data, null, 2);
+}
