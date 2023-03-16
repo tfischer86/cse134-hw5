@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTTP Method Test</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="module" src="methodtest.js"></script>
+</head>
+
+<body>
+    <header id="navigation-header">
+        <nav class="site-nav" id="global-nav">
+            <a id="link-home" href="/">Home</a>
+            <a href="methodtest.html">Method Test</a>
+            <a href="webcomponent.html">WebComponent Test</a>
+            <a href="projects.html">Projects</a>
+            <a href="hobbies.html">Hobbies</a>
+            <a href="contact.html">Contact Me</a>
+        </nav>
+        <nav class="site-nav" id="mobile-nav">
+            <details>
+                <summary>Navigation</summary>
+                <a href="/">Home</a>
+                <a href="methodtest.html">Method Test</a>
+                <a href="webcomponent.html">WebComponent Test</a>
+                <a href="projects.html">Projects</a>
+                <a href="hobbies.html">Hobbies</a>
+                <a href="contact.html">Contact Me</a>
+            </details>
+        </nav>
+    </header>
+
+    <main>
+        <form id="article_form" action="https://httpbin.org/post" method="post">
+            <label for="article_id">Article ID:</label>
+            <input type="number" name="article_id" id="article_id"><br>
+            <label for="article_name">Article Name:</label>
+            <input type="text" name="article_name" id="article_name"><br>
+            <label for="article_body">Article Body:</label>
+            <textarea name="article_body" id="article_body"></textarea><br>
+            <input type="hidden" name="article_date" id="article_date">
+        </form>
+
+        <button id="postBtn">Post</button>
+        <button id="getBtn">Get</button>
+        <button id="putBtn">Put</button>
+        <button id="deleteBtn">Delete</button>
+
+        <br>
+        <output style="white-space: pre" id="response"></output>
+    </main>
+    <footer id="site-footer">
+        <p>Created by Thomas Fischer</p>
+    </footer>
+</body>
+
+</html>
